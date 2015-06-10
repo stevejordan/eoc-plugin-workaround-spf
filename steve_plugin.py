@@ -1,7 +1,10 @@
 # sample enemies of carlotta plugin
 
 import logging
-logging.basicConfig(filename='eoc_plugin.log', level=logging.DEBUG)
+import os
+
+log_file_name = os.path.dirname(os.path.abspath(__file__)) + '/eoc_plugin.log'
+logging.basicConfig(filename=log_file_name, level=logging.DEBUG)
 log = logging.getLogger("plugin")
 
 log.debug("plugin instantiated")
