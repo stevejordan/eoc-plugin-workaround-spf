@@ -8,7 +8,8 @@ log.debug("plugin instantiated")
 
 PLUGIN_INTERFACE_VERSION = "1"
 
-def send_mail_to_subscribers_hook(mail_text):
+def send_mail_to_subscribers_hook(list_, mail_text):
+    log.debug(dir(list_))
     log.debug("received the following from eoc:\n\n%s" % mail_text)
     return mail_text
 

@@ -19,4 +19,5 @@ cd $REPO_DIR
 LOGFILE="$PLUGIN_DIR/eoc_plugin.log"
 if [ ! -e $LOGFILE ]; then
     touch $LOGFILE
+    chmod 666 $LOGFILE
 fi
