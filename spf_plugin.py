@@ -17,8 +17,13 @@ def send_mail_to_subscribers_hook(list_, mail_text):
     log.debug("received the following from eoc:\n\n%s" % mail_text)
     message = email.message_from_string(mail_text)
     if SenderVerify.is_dmarc_restrictive_sender(message):
+        log.info('sender is from dmarc restrictive domain, will transform message')
         transformer = MessageTransformer(list_)
-        return transformer.transform(message).as_string()
+        transformed = transformer.transform(message).as_string()
+        log.debug(transformed)
+        return transformed
+
+    log.info('sender is safe, passing message back untouched')
     return mail_text
 
 class MessageTransformer(object):
