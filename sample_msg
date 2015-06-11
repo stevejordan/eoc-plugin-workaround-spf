@@ -1,0 +1,42 @@
+List-Id: <maillist.stevejordandigital.co.uk>
+List-Help: <mailto:maillist-help@stevejordandigital.co.uk>
+List-Unsubscribe: <mailto:maillist-unsubscribe@stevejordandigital.co.uk>
+List-Subscribe: <mailto:maillist-subscribe@stevejordandigital.co.uk>
+List-Post: <mailto:maillist@stevejordandigital.co.uk>
+List-Owner: <mailto:maillist-owner@stevejordandigital.co.uk>
+Precedence: bulk
+Received: from balrog.mythic-beasts.com ([2a00:1098:0:82:1000:0:2:1])
+        by onza.mythic-beasts.com with esmtp (Exim 4.80)
+        (envelope-from <steve@stevejordandigital.co.uk>)
+        id 1Z2mld-0001R5-Bk
+        for maillist@stevejordandigital.co.uk; Wed, 10 Jun 2015 21:38:33 +0100
+Received: from [2a00:1098:0:80:1000::11] (port=36699 helo=localhost)
+        by balrog.mythic-beasts.com with esmtps (TLS1.2:DHE_RSA_AES_128_CBC_SHA1:128)
+        (Exim 4.80)
+        (envelope-from <steve@stevejordandigital.co.uk>)
+        id 1Z2mld-0002XP-5K
+        for maillist@stevejordandigital.co.uk; Wed, 10 Jun 2015 21:38:33 +0100
+Received: from www-data by localhost with local (Exim 4.80)
+        (envelope-from <steve@stevejordandigital.co.uk>)
+        id 1Z2mlc-0006VZ-Kw
+        for maillist@stevejordandigital.co.uk; Wed, 10 Jun 2015 21:38:32 +0100
+To: <maillist@stevejordandigital.co.uk>
+Subject: filter test 2
+X-PHP-Originating-Script: 0:main.inc
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Wed, 10 Jun 2015 21:38:32 +0100
+From: steve@stevejordandigital.co.uk
+Message-ID: <fea091857be2500b0b854a7ec69ae2d4@stevejordandigital.co.uk>
+X-Sender: steve@stevejordandigital.co.uk
+User-Agent: Roundcube Webmail/0.7.2
+Delivered-To: sjordan-maillist@stevejordandigital.co.uk
+X-BlackCat-To: sjordan-maillist@stevejordandigital.co.uk
+
+/**
+
+
+--
+To unsubscribe, send mail to maillist-unsubscribe@stevejordandigital.co.uk.
