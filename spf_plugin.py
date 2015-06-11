@@ -18,7 +18,7 @@ def send_mail_to_subscribers_hook(list_, mail_text):
     message = email.message_from_string(mail_text)
     if SenderVerify.is_dmarc_restrictive_sender(message):
         transformer = MessageTransformer(list_)
-        transformer.transform(message)
+        return transformer.transform(message).as_string()
     return mail_text
 
 class MessageTransformer(object):
