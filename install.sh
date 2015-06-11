@@ -7,7 +7,7 @@ PLUGIN_DIR=$EOC_DOTDIR/plugins
 
 REPO_DIR=$PWD
 cd $PLUGIN_DIR 
-SRC_FILES=$(find $REPO_DIR -name \*.py)
+SRC_FILES=$(find $REPO_DIR -name \*.py -not -name test\*.py)
 for file in $SRC_FILES; do
     if [ ! -h $file ]; then
         ln -s $file
