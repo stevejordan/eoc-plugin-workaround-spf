@@ -1,0 +1,3 @@
+[submodule "enemies-of-carlotta"]
+	path = eoc
+	url = https://github.com/svanegmond/enemies-of-carlotta.git
