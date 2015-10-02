@@ -2,8 +2,9 @@ import unittest
 import spf_plugin
 import email
 
+
 class PluginTest(unittest.TestCase):
-    
+
     _dummy_list = None
 
     def setUp(self):
@@ -16,9 +17,9 @@ class PluginTest(unittest.TestCase):
         new_email = spf_plugin.send_mail_to_subscribers_hook(
             self._dummy_list, "any old email"
         )
-        self.assertNotEquals(new_email, None)
+        self.assertIsNotNone(new_email)
 
-        
+
 class TestMessageTransformer(unittest.TestCase):
 
     _transformer = None
@@ -41,27 +42,27 @@ class TestMessageTransformer(unittest.TestCase):
         transformed_message = self._transformer.transform(self._message)
         new_from_address = transformed_message.get('From')
         self.assertEquals(maillist_address, new_from_address)
-    
+
     def test_original_sender_explanation(self):
         original_sender = self._message.get('From')
         transformed_message = self._transformer.transform(self._message)
         explanation_text = 'Originally sent by %s' % original_sender
         self.assertIn(
-            explanation_text, 
+            explanation_text,
             transformed_message.get_payload()
         )
-    
+
+
 class SenderVerifyTest(unittest.TestCase):
     def test_dmarc_filter(self):
         verifier = spf_plugin.SenderVerify
         self.assertTrue(verifier.is_dmarc_restrictive_sender('steve@yahoo.com'))
         self.assertTrue(verifier.is_dmarc_restrictive_sender('steve@yahoo.co.uk'))
         self.assertFalse(verifier.is_dmarc_restrictive_sender('steve@example.com'))
-    
-        
+
+
 class MockList(object):
     name = 'mock@list.com'
 
-    
 if __name__ == "__main__":
     unittest.main()

@@ -12,12 +12,14 @@ log.debug("plugin instantiated")
 
 PLUGIN_INTERFACE_VERSION = "1"
 
+
 def send_mail_to_subscribers_hook(list_, mail_text):
     log.debug(dir(list_))
     log.debug("received the following from eoc:\n\n%s" % mail_text)
     message = email.message_from_string(mail_text)
     if SenderVerify.is_dmarc_restrictive_sender(message):
-        log.info('sender is from dmarc restrictive domain, will transform message')
+        log.info('sender is from dmarc restrictive domain, ' +
+                 'will transform message')
         transformer = MessageTransformer(list_)
         transformed = transformer.transform(message).as_string()
         log.debug(transformed)
@@ -25,6 +27,7 @@ def send_mail_to_subscribers_hook(list_, mail_text):
 
     log.info('sender is safe, passing message back untouched')
     return mail_text
+
 
 class MessageTransformer(object):
     _list = None
@@ -40,11 +43,11 @@ class MessageTransformer(object):
         self._replace_from_field_with_list_address()
         self._add_explanation_text()
         return self._message
-    
+
     def _replace_from_field_with_list_address(self):
         list_address = self._list.name
         self._message.replace_header('From', list_address)
-    
+
     def _add_explanation_text(self):
         explanation = '''
         Originally sent by %s
@@ -52,12 +55,16 @@ class MessageTransformer(object):
         self._message.set_payload(
             explanation + self._message.get_payload()
         )
-        
+
+
 class SenderVerify(object):
-    '''class used to perform tests on sender to determine if action need be taken'''
+    '''class used to perform tests on sender to determine if action need
+    be taken'''
+
     dmarc_restrictive_domains = [
         'yahoo.com', 'yahoo.co.uk'
     ]
+
     @classmethod
     def is_dmarc_restrictive_sender(cls, sender_address):
         for domain in cls.dmarc_restrictive_domains:
